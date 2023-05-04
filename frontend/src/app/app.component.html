@@ -1,0 +1,33 @@
+ <mat-toolbar>
+  <ng-container>
+    <mat-toolbar-row>
+      <a class="titles" href="#">Angular Test</a>
+      <span class="example-spacer"></span>
+      <div>
+        <a mat-button routerLink="/ventas" routerLinkActive="active">Venta</a>
+        <a mat-button routerLink="/map" routerLinkActive="active">Compra</a>
+        <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+          <a mat-button routerLink="/signin" routerLinkActive="active">SignIn</a>
+          <a mat-button routerLink="/signup" routerLinkActive="active">SignUp</a>
+        </ng-container>
+        <ng-template #loggedIn>
+          <a mat-button style="cursor: pointer;" (click)="authService.logout()">Logout</a>
+        </ng-template>
+      </div>
+    </mat-toolbar-row>
+  </ng-container>
+  <ng-container *ngIf="router.url === '/map'">
+    <mat-toolbar-row class="module">
+      <a class="titles" href="#">Proyectos</a>
+    </mat-toolbar-row>
+  </ng-container>
+  <ng-container *ngIf="router.url === '/ventas'">
+    <mat-toolbar-row class="module">
+      <a class="titles" href="#">Estadisticas</a>
+    </mat-toolbar-row>
+  </ng-container>
+</mat-toolbar>
+
+<div class="container p-5">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <div id="map"></div>
+
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Latitud:</mat-label>
+        <input matInput type="number" id="lat" name="lat" [(ngModel)]="marker.lat">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Longitud:</mat-label>
+        <input matInput type="number" id="lng" name="lng" [(ngModel)]="marker.lng">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Agregar marcador</button>
+    </form>
+  </mat-card-content>
+</mat-card>
